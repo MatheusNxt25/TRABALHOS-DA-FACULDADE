@@ -33,7 +33,7 @@ CodDentista INT NOT NULL CONSTRAINT FK_CodDentista FOREIGN KEY REFERENCES DENTIS
 CodPaciente INT NOT NULL CONSTRAINT FK_CodPaciente FOREIGN KEY REFERENCES PACIENTE(CodPaciente),
 TRATAMENTO TEXT);
 
--- índice para a coluna nome do paciente
+-- Ã­ndice para a coluna nome do paciente
 
 CREATE NONCLUSTERED INDEX IDXNomePaciente ON PACIENTE (NOME);
 
@@ -61,7 +61,7 @@ INSERT INTO PACIENTE (NOME,SEXO,ENDERECO,DataNasc,CPF,TELEFONE) VALUES
 ('LAURA SILVA','F','AV.MUNIZ BARRETO 125','17/05/1999','55764084032','(67)98154-1473'),
 ('SAMUEL DA SILVA','M','RUA MANOEL DE OLIVEIRA GOMES','15/01/2000','27510664020','(67)99293-0782'),
 ('LUCAS MATHEUS','M','RUA MARIALVA 174','25/09/1999','58231795022','(67)98165-4554'),
-('VICTOR HUGO','M','RUA JOSÉ FALSETTI','10/01/2005','16490313006','(67)98172-2017');
+('VICTOR HUGO','M','RUA JOSÃ‰ FALSETTI','10/01/2005','16490313006','(67)98172-2017');
 
 --CONSULTA
 
@@ -81,7 +81,7 @@ INSERT INTO CONSULTA (DATA,HORA,CodDentista,CodPaciente,TRATAMENTO) VALUES
 --SELECT * FROM PACIENTE
 --SELECT * FROM CONSULTA
 
---View para apresentar o Nome e o CRO de todos os dentistas cadastrados em ordem alfabética.
+--View para apresentar o Nome e o CRO de todos os dentistas cadastrados em ordem alfabÃ©tica.
 
 CREATE VIEW ConsultaDentista_CRO 
 AS SELECT NOME,CRO
@@ -90,7 +90,7 @@ FROM DENTISTA;
 SELECT * FROM ConsultaDentista_CRO ORDER BY NOME ASC;
 
 --Stored Procedure que apresente a Data e hora da consulta, o nome do paciente que foi consultado
---e o nome do médico que realizou a consulta
+--e o nome do mÃ©dico que realizou a consulta
 
 CREATE PROCEDURE DadosPacienteConsulta
 AS
@@ -118,7 +118,7 @@ END;
 --EXEMPLO (EXECUTE NomePaciente 'Nome';)
 EXECUTE NomePaciente 'HELENA OLIVEIRA';
 
---Altere o endereço do primeiro paciente que você cadastrou para: Rua das Flores, 525
+--Altere o endereÃ§o do primeiro paciente que vocÃª cadastrou para: Rua das Flores, 525
 
 CREATE TRIGGER Tr_ConfirmaAlteracao
 ON PACIENTE FOR UPDATE
@@ -134,7 +134,7 @@ WHERE CodPaciente = 1
 
 --SELECT * FROM PACIENTE
 
---Apague a segunda consulta que você cadastrou
+--Apague a segunda consulta que vocÃª cadastrou
 
 CREATE TRIGGER TR_ConfirmaExclusao
 on CONSULTA FOR DELETE
